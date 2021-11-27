@@ -17,7 +17,10 @@ menor = chute < numero_secreto
 if acertou:
     print("Você acertou!")
 else:
+# ELSE em Python não aceita receber condição, para isso, usa-se ELIF.
     if maior:
         print("Você errou. Seu número foi MAIOR do que o número secreto.")
     elif menor:
         print("Você errou. Seu número foi MENOR do que o número secreto.")
+
+print("Fim de jogo!")
