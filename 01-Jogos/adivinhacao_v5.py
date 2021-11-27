@@ -4,13 +4,15 @@ print("*********************************")
 
 numero_secreto = 42
 total_de_tentativas = 3
-rodada = 1
 
-while rodada <= total_de_tentativas:
-    print("Tentativa", rodada, "de", total_de_tentativas)
+for rodada in range(1, total_de_tentativas + 1):
+    # Implementando o FOR.
+    # No RANGE do FOR, o último número da sequência não entra na iteração, por isso,
+    # acrescenta-se em alguns casos, "+1".
+
+    print(f"Tentativa {rodada} de {total_de_tentativas}")
+
     chute = int(input("Digite seu número: "))
-    # A função input sempre registra o valor informado como string a partir do Python 3, por isso,
-    # é preciso especificar o tipo se for fazer algum tipo de compatação entre variáveis.
 
     print("Você digitou: ", chute)
 
@@ -21,12 +23,9 @@ while rodada <= total_de_tentativas:
     if acertou:
         print("Você acertou!")
     else:
-    # ELSE em Python não aceita receber condição, para isso, usa-se ELIF.
         if maior:
             print("Você errou. Seu número foi MAIOR do que o número secreto.")
         elif menor:
             print("Você errou. Seu número foi MENOR do que o número secreto.")
-
-    rodada = rodada + 1
 
 print("Fim de jogo!")

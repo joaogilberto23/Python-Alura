@@ -5,9 +5,6 @@ print("*********************************")
 numero_secreto = 42
 
 chute = int(input("Digite seu número: "))
-# A função input sempre registra o valor informado como string a partir do Python 3, por isso,
-# é preciso especificar o tipo se for fazer algum tipo de compatação entre variáveis.
-
 print("Você digitou: ", chute)
 
 acertou = chute == numero_secreto
@@ -21,6 +18,7 @@ else:
     if maior:
         print("Você errou. Seu número foi MAIOR do que o número secreto.")
     elif menor:
+    # Implementando ELIF.
         print("Você errou. Seu número foi MENOR do que o número secreto.")
 
 print("Fim de jogo!")
