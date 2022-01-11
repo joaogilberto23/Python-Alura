@@ -1,5 +1,4 @@
 def jogar():
-    # Implemantando a função para jogar o Forca.
     print("*********************************")
     print("***Bem vindo ao jogo de Forca!***")
     print("*********************************")
@@ -9,10 +8,11 @@ def jogar():
     enforcou = False
     acertou = False
 
-    #Implementando a lógica do laço de repetição no jogo.
+    # Implementando a lógica do laço de repetição no jogo.
     while not enforcou and not acertou:
 
         chute = input("Qual a letra? ")
+
         index = 0
         for letra in palavra_secreta:
             if chute == letra:
@@ -23,5 +23,4 @@ def jogar():
 
 
 if __name__ == "__main__":
-    # Implantando
     jogar()
