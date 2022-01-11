@@ -1,30 +1,24 @@
 import random
 
 
-# Enxugando o código:
 def jogar():
-    mensagem_abertura()  # Criando uma função para encapsular a mensagem de abertura.
-    palavra_secreta = carrega_palavra_secreta()  # Criando uma função para encapsular o carregamento da palavra secreta.
-    letras_acertadas = inicializa_letras_acertadas(
-        palavra_secreta)  # Criando uma função para encapsular a exibição de quantas letras tem a palavra secreta.
+
+    mensagem_abertura()
+    palavra_secreta = carrega_palavra_secreta()
+
+    letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
+    print(letras_acertadas)
 
     enforcou = False
     acertou = False
     erros = 0
 
-    print(letras_acertadas)
-
     while not enforcou and not acertou:
 
-        chute = input("Qual a letra? ")
-        chute = chute.strip().upper()
+        chute = pede_chute()
 
         if chute in palavra_secreta:
-            index = 0
-            for letra in palavra_secreta:
-                if chute.upper() == letra.upper():
-                    letras_acertadas[index] = letra
-                index += 1
+            marca_chute_correto(chute, letras_acertadas, palavra_secreta)
         else:
             erros += 1
             print(f"Ops, você errou! Faltam {len(palavra_secreta) - erros} tentativas.")
@@ -35,12 +29,11 @@ def jogar():
         print(letras_acertadas)
 
     if acertou:
-        print("Você ganhou!")
+        mensagem_vitoria()
     else:
-        print("Você perdeu!")
+        mensagem_derrota()
 
-    print("Fim do jogo.")
-
+# Enxugando mais o código encapsulando boa parte da lógica em funções.
 
 def mensagem_abertura():
     print("*********************************")
@@ -65,6 +58,28 @@ def carrega_palavra_secreta():
 
 def inicializa_letras_acertadas(palavra_secreta):
     return ["_" for letra in palavra_secreta]
+
+
+def pede_chute():
+    chute = input("Qual a letra? ")
+    chute = chute.strip().upper()
+    return chute
+
+
+def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
+    index = 0
+    for letra in palavra_secreta:
+        if chute.upper() == letra.upper():
+            letras_acertadas[index] = letra
+        index += 1
+
+
+def mensagem_vitoria():
+    print("Você ganhou!")
+
+
+def mensagem_derrota():
+    print("Você perdeu!")
 
 
 if __name__ == "__main__":
