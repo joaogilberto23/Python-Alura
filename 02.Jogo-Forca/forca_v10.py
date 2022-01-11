@@ -73,6 +73,7 @@ def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
         index += 1
 
 
+# Melhorando o menu de interativo do jogo.
 def mensagem_vitoria():
     print("Parabéns, você ganhou!")
     print("       ___________      ")
